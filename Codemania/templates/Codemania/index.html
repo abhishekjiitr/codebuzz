@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>Problems @Codemania</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.list-group{
+		width: 1000px;
+	}
+    .bs-example{
+    	margin-left: 22em;
+    	margin-top: 20em;
+    }
+    #title{
+    	font-size: 36px;
+    }
+body {
+    background: white url("{% static 'img/back1.jpg' %}") no-repeat;
+   	
+
+}
+</style>
+</head>
+<body>
+{% if problems %}
+<div class="bs-example">
+<h1 id = "title">Problems</h1>
+    <div class="list-group">
+        {% for problem in problems %}
+        <a href="/Codemania/problems/tags/{{ problem.title }}/" class="list-group-item active">
+            <span class="glyphicon glyphicon-file"></span>{{ problem.problem_name }} <span class="badge">Solve it!</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+    <p>No Questions are available.</p>
+{% endif %}
+</body>
+</html>

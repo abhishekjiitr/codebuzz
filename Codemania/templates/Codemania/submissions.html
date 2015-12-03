@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Submissions @Codemania</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.list-group{
+		width: 1000px;
+	}
+    .bs-example{
+    	margin-left: 22em;
+    	margin-top: 20em;
+    }
+    #title{
+    	font-size: 36px;
+    }
+</style>
+</head>
+<body>
+{% if submissions %}
+<div class="bs-example">
+<h1 id = "title">Recent Submissions</h1>
+    <div class="list-group">
+        {% for submission in submissions %}
+        <a href="#" class="list-group-item active">
+            <span class="glyphicon glyphicon-file"></span>{{ submission.problem_title }} - by - {{ submission.submitted_by }} <span class="badge">{{submission.status}}</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+    <p>No Submissions Yet.</p>
+{% endif %}
+</body>
+</html>
